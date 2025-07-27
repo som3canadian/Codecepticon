@@ -11,6 +11,7 @@ using Codecepticon.Modules.CSharp.Profiles.SharpChrome;
 using Codecepticon.Modules.CSharp.Profiles.SharpDPAPI;
 using Codecepticon.Modules.CSharp.Profiles.SharpHound;
 using Codecepticon.Modules.CSharp.Profiles.SharpView;
+using Codecepticon.Modules.CSharp.Profiles.SharpImpersonation;
 using Codecepticon.Utils;
 
 namespace Codecepticon.Modules.CSharp.CommandLine
@@ -42,7 +43,7 @@ namespace Codecepticon.Modules.CSharp.CommandLine
             foreach (KeyValuePair<string, string> argument in arguments)
             {
                 switch (argument.Key.ToLower())
-                {   
+                {
                     case "rename":
                         CommandLineData.CSharp.Rename.Enabled = (argument.Value.Length > 0);
                         ParseRenameOptions(argument.Value.ToLower());
@@ -51,7 +52,7 @@ namespace Codecepticon.Modules.CSharp.CommandLine
                         if (argument.Value.ToLower() != "false")
                         {
                             CommandLineData.CSharp.Compilation.Build = (argument.Value.Length > 0);
-                        }   
+                        }
                         break;
                     case "build-path":
                         CommandLineData.CSharp.Compilation.OutputPath = argument.Value;
@@ -85,6 +86,7 @@ namespace Codecepticon.Modules.CSharp.CommandLine
                 "certify" => new Certify(),
                 "sharpdpapi" => new SharpDPAPI(),
                 "sharpchrome" => new SharpChrome(),
+                "sharpimpersonation" => new SharpImpersonation(),
                 _ => new BaseProfile()
             };
         }

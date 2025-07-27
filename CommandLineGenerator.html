@@ -33,7 +33,7 @@
         </nav>
 
         <div class="container mt-5">
-            
+
             <div class="row">
                 <div class="col">
                     <!-- Command Line -->
@@ -161,6 +161,7 @@
                                             <option value="sharpdpapi">SharpDPAPI</option>
                                             <option value="sharphound">SharpHound</option>
                                             <option value="sharpview">SharpView</option>
+                                            <option value="sharpimpersonation">SharpImpersonation</option>
                                         </select>
                                     </div>
                                 </div>
@@ -291,7 +292,7 @@
                                             <option value="markov">Generate Random Words (that sound English by using Markov chains)</option>
                                         </select>
                                     </div>
-                                
+
                                     <!-- Rename Character Set -->
                                     <div class="mb-3 box-rename-charset">
                                         <label for="rename-charset" class="form-label">Character Set</label><small class="ms-2">(Only upper/lower letters, no spaces, digits, special characters.)</small><span class="ms-1 text-danger">*</span>
@@ -513,7 +514,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -578,7 +579,7 @@
                 getTimestamp: function() { return this.element('#timestamp').value; },
                 getSignatureAlgorithm: function() { return this.element('#algorithm').value; },
                 fileToSign: function() { return this.element('#executable').value; },
-                
+
                 getRenameItems: function(module) {
                     let rename = [];
                     let elements = [...this.elements('.' + module + '-rename-item')];
@@ -622,7 +623,7 @@
                             if (PageData.element('#action').value == 'cert' || PageData.element('#action').value == 'sign') {
                                 PageData.element('#action').value = 'obfuscate';
                             }
-                            
+
                             PageData.hide('.family-signing');
                             break;
                         case "sign":
@@ -634,7 +635,7 @@
                                 PageData.element('#action').value = 'cert';
                             }
                             PageData.hide('.family-obfuscation');
-                            
+
                             break;
                     }
 
@@ -716,7 +717,7 @@
                             PageData.show('.box-rewrite-charset, .box-rewrite-length');
                             break;
                         case "file":
-                            PageData.hide('.box-rewrite-charset, .box-rewrite-length');    
+                            PageData.hide('.box-rewrite-charset, .box-rewrite-length');
                             PageData.show('.box-rewrite-external-file');
                             break;
                     }
